@@ -3,73 +3,21 @@
 # of a triangle if given the length of the other two sides. Figure out how to 
 # DRY up all the code below - there shouldn't be a single method duplicated between
 # any two classes.
+$LOAD_PATH << '.'
+require 'calc_3_module'
 
 class SimpleCalculator
-
-  def add(first_number, second_number)
-    first_number + second_number
-  end
-
-  def subtract(first_number, second_number)
-    first_number - second_number
-  end
-
-  def multiply(first_number, second_number)
-    first_number * second_number
-  end
-
-  def divide(first_number, second_number)
-    first_number / second_number
-  end
-
+  include Calculator
 end
 
 class FancyCalculator
-
-  def add(first_number, second_number)
-    first_number + second_number
-  end
-
-  def subtract(first_number, second_number)
-    first_number - second_number
-  end
-
-  def multiply(first_number, second_number)
-    first_number * second_number
-  end
-
-  def divide(first_number, second_number)
-    first_number / second_number
-  end
-
-  def square_root(number)
-    Math.sqrt(number)
-  end
-
+  include Calculator
 end
 
+
+
 class WhizBangCalculator
-
-  def add(first_number, second_number)
-    first_number + second_number
-  end
-
-  def subtract(first_number, second_number)
-    first_number - second_number
-  end
-
-  def multiply(first_number, second_number)
-    first_number * second_number
-  end
-
-  def divide(first_number, second_number)
-    first_number / second_number
-  end
-
-  def square_root(number)
-    Math.sqrt(number)
-  end
-
+  include Calculator
   def hypotenuse(first_number, second_number)
     Math.hypot(first_number, second_number)
   end
@@ -84,3 +32,103 @@ end
 
 # Copy your driver code from the previous exercise and more below:
 
+calculator = SimpleCalculator.new
+if calculator.add(5, 5) == 10
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator.subtract(10, 5) == 5
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator.multiply(5, 5) == 25
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator.divide(10, 5) == 2
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+calculator_2 = FancyCalculator.new
+
+if calculator_2.add(5, 5) == 10
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_2.subtract(10, 5) == 5
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_2.multiply(5, 5) == 25
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_2.divide(10, 5) == 2
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_2.square_root(100) == 10.0
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+calculator_3 = WhizBangCalculator.new
+
+if calculator_3.add(5, 5) == 10
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_3.subtract(10, 5) == 5
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_3.multiply(5, 5) == 25
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_3.divide(10, 5) == 2
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_3.square_root(100) == 10.0
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_3.hypotenuse(4, 20) == 20.396078054371138
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_3.exponent(10, 2) == 100
+  puts "Pass!"
+else
+  puts"Fail!"
+end

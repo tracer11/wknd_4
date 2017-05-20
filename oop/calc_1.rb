@@ -12,7 +12,7 @@
 # Inheritance in Ruby, and use it to remove the duplication (or DRY up) the code 
 # below. You must also write the driver code to test your classes.
 
-class SimpleCalculator
+class Calculator
 
   def add(first_number, second_number)
     first_number + second_number
@@ -32,23 +32,11 @@ class SimpleCalculator
 
 end
 
-class FancyCalculator
+class SimpleCalculator < Calculator
 
-  def add(first_number, second_number)
-    first_number + second_number
-  end
+end
 
-  def subtract(first_number, second_number)
-    first_number - second_number
-  end
-
-  def multiply(first_number, second_number)
-    first_number * second_number
-  end
-
-  def divide(first_number, second_number)
-    first_number / second_number
-  end
+class FancyCalculator < Calculator
 
   def square_root(number)
     Math.sqrt(number)
@@ -57,4 +45,62 @@ class FancyCalculator
 end
 
 # Write your own driver code below:
+
+calculator = SimpleCalculator.new
+if calculator.add(5, 5) == 10
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator.subtract(10, 5) == 5
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator.multiply(5, 5) == 25
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator.divide(10, 5) == 2
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+calculator_2 = FancyCalculator.new
+
+if calculator_2.add(5, 5) == 10
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_2.subtract(10, 5) == 5
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_2.multiply(5, 5) == 25
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_2.divide(10, 5) == 2
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
+if calculator_2.square_root(100) == 10.0
+  puts "Pass!"
+else
+  puts"Fail!"
+end
+
 
